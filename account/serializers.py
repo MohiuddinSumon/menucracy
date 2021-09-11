@@ -31,14 +31,3 @@ class UserSerializer(serializers.ModelSerializer):
             return User.objects.create_user(**validated_data)
 
 
-class LoginSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(
-        max_length=50, min_length=6, write_only=True,
-        style={'input_type': 'password', 'placeholder': 'Password'}
-    )
-
-    class Meta:
-        model = User
-        fields = ['username', 'password']
-        # read_only_fields = ['token']
-
