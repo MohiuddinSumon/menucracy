@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'account',
     'core',
+    'restaurant',
 ]
 
 MIDDLEWARE = [
