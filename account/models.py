@@ -17,6 +17,3 @@ class User(AbstractUser, BaseModel):
         default=UserType.EMPLOYEE,
     )
 
-    @property
-    def token(self):
-        return ''

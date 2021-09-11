@@ -5,7 +5,10 @@ from account.models import User, UserType
 
 
 class UserSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(max_length=50, min_length=6, write_only=True)
+    password = serializers.CharField(
+        max_length=50, min_length=6, write_only=True,
+        style={'input_type': 'password', 'placeholder': 'Password'}
+    )
 
     class Meta:
         model = User
@@ -30,10 +33,12 @@ class UserSerializer(serializers.ModelSerializer):
 
 class LoginSerializer(serializers.ModelSerializer):
     password = serializers.CharField(
-        max_length=65, min_length=8, write_only=True)
+        max_length=50, min_length=6, write_only=True,
+        style={'input_type': 'password', 'placeholder': 'Password'}
+    )
 
     class Meta:
         model = User
-        fields = ['token', 'username', 'password']
-        read_only_fields = ['token']
+        fields = ['username', 'password']
+        # read_only_fields = ['token']
 
