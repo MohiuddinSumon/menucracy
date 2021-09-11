@@ -6,8 +6,8 @@ from core.models import BaseModel
 
 class UserType(models.TextChoices):
     ADMIN = 'ADMIN', _('Admin')
-    EMPLOYEE = 'EMPLOYEE', _('Employee')
     OWNER = 'OWNER', _('Owner')
+    EMPLOYEE = 'EMPLOYEE', _('Employee')
 
 
 class User(AbstractUser, BaseModel):
