@@ -1,3 +1,4 @@
+from django.core.validators import MinValueValidator
 from django.db import models
 import datetime
 
@@ -21,3 +22,13 @@ class Restaurant(models.Model):
     def __str__(self):
         return self.name
 
+
+class Menu(models.Model):
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, related_name='menus')
+    name = models.CharField(null=False, max_length=60)
+    details = models.TextField(null=True, blank=True)
+    serving_date = models.DateField(default=datetime.date.today)
+    vote_count = models.PositiveIntegerField(default=0, validators=[MinValueValidator(0)])
+
+    class Meta:
+        unique_together = ("restaurant", "serving_date")
