@@ -12,6 +12,7 @@ from vote.serializers import VoteSerializer
 
 class VoteViewSet(ModelViewSet):
     serializer_class = VoteSerializer
+    http_method_names = ['get', 'post']
 
 
 class WinnerMenu(APIView):
