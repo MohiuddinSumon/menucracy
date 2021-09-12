@@ -17,7 +17,7 @@ class ReadMenuSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Menu
-        fields = ("id", "restaurant", "name", "details")
+        fields = ("id", "restaurant", "name", "details", "vote_count")
         read_only_fields = fields
 
 

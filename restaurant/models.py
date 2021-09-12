@@ -32,3 +32,6 @@ class Menu(models.Model):
 
     class Meta:
         unique_together = ("restaurant", "serving_date")
+
+    def __str__(self):
+        return f'Menu = {self.name}, Vote = {self.vote_count}'
